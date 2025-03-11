@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Persistence.Entities
 {
-    public class Shift
+    public class ScheduleDate
     {
-        public int ShiftId { get; set; }
+        public int Id { get; set; }
 
-        public string? ScheduleTime { get; set; }
+        public DateOnly Date {  get; set; }
     }
 }

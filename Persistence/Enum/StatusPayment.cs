@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence.Entities
+namespace Persistence.Enum
 {
-    public class SchdeduleDate
+    public enum StatusPayment
     {
     }
 }

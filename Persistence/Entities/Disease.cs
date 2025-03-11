@@ -18,6 +18,8 @@ namespace Persistence.Entities
 
         public string? Treatements { get; set; }
 
+        public string? ImageUrl { get; set; }
+
         public virtual ICollection<Symptoms> Symptoms { get; set;} = new List<Symptoms>();
 
         public virtual ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();

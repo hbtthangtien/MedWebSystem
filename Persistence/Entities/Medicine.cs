@@ -11,6 +11,9 @@ namespace Persistence.Entities
         public int Id { get; set; } 
 
         public string ProviderId { get; set; } = string.Empty;
+
+        public string ImageUrl { get; set; } = string.Empty;
+
         public string? Name { get; set; }
 
         public double Price { get; set; }
