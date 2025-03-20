@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Application
 {
-    public class DependenceInjection
+    public static class DependenceInjection
     {
+        public static void AddApplication(this IServiceCollection services)
+        {
+
+        }
     }
 }

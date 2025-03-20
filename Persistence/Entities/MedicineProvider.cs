@@ -12,6 +12,7 @@ namespace Persistence.Entities
 
         public string? Location { get; set; }
 
-        public ICollection<Medicine> Medicines { get; set;} = new List<Medicine>();
+        public virtual User? User { get; set; }
+        public virtual ICollection<Medicine> Medicines { get; set;} = new List<Medicine>()!;
     }
 }

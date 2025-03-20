@@ -10,8 +10,6 @@ namespace Persistence.Entities
     {
         public int Id { get; set; }
 
-        public string? MedicineProviderId { get; set; }
-
         public string? Name { get; set; }
 
         public string? Description { get; set; }
@@ -24,6 +22,5 @@ namespace Persistence.Entities
 
         public virtual ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
 
-        public virtual MedicineProvider? MedicineProvider { get; set; }
     }
 }
