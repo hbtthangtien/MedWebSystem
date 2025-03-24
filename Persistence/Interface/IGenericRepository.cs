@@ -9,16 +9,11 @@ namespace Persistence.Interface
 {
     public interface IGenericRepository<T> where T : class
     {
+        public Task<T?> GetBySingleAsync(Expression<Func<T, bool>> predicate);
         public Task<IEnumerable<T>> GetAllAsync();
-
-        public Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
-
-        public Task<T> GetSingleTon(Expression<Func<T, bool>> predicate);
-
         public Task AddAsync(T entity);
-
-        public Task UpdateAsync(T entity);
-
+        public void Update(T entity);
         public Task DeleteAsync(T entity);
+        public Task SaveChangeAsync();
     }
 }
