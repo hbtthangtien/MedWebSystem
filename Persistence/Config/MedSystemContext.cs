@@ -81,9 +81,9 @@ namespace Persistence.Config
                     .WithMany(e => e.Diseases)
                     .UsingEntity(
                     "DiseaseMedicine",
-                    l => l.HasOne(typeof(Disease)).WithMany().HasForeignKey("DiseaseId").OnDelete(DeleteBehavior.NoAction),
-                    r => r.HasOne(typeof(Medicine)).WithMany().HasForeignKey("MedicineId").OnDelete(DeleteBehavior.NoAction),
-                    j => j.HasKey("DiseaseId", "MedicineId")
+                    l => l.HasOne(typeof(Disease)).WithMany().HasForeignKey("DiseasesId").OnDelete(DeleteBehavior.NoAction),
+                    r => r.HasOne(typeof(Medicine)).WithMany().HasForeignKey("MedicinesId").OnDelete(DeleteBehavior.NoAction),
+                    j => j.HasKey("DiseasesId", "MedicinesId")
                     );
                 entity.HasMany(e => e.Symptoms)
                     .WithMany(e => e.Diseases)

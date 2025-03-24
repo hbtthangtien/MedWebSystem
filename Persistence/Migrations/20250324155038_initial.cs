@@ -483,36 +483,22 @@ namespace Persistence.Migrations
                 name: "DiseaseMedicine",
                 columns: table => new
                 {
-                    DiseaseId = table.Column<int>(type: "int", nullable: false),
-                    MedicineId = table.Column<int>(type: "int", nullable: false),
                     DiseasesId = table.Column<int>(type: "int", nullable: false),
                     MedicinesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_DiseaseMedicine", x => new { x.DiseaseId, x.MedicineId });
-                    table.ForeignKey(
-                        name: "FK_DiseaseMedicine_Diseases_DiseaseId",
-                        column: x => x.DiseaseId,
-                        principalTable: "Diseases",
-                        principalColumn: "Id");
+                    table.PrimaryKey("PK_DiseaseMedicine", x => new { x.DiseasesId, x.MedicinesId });
                     table.ForeignKey(
                         name: "FK_DiseaseMedicine_Diseases_DiseasesId",
                         column: x => x.DiseasesId,
                         principalTable: "Diseases",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_DiseaseMedicine_Medicines_MedicineId",
-                        column: x => x.MedicineId,
-                        principalTable: "Medicines",
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_DiseaseMedicine_Medicines_MedicinesId",
                         column: x => x.MedicinesId,
                         principalTable: "Medicines",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -682,16 +668,6 @@ namespace Persistence.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DiseaseMedicine_DiseasesId",
-                table: "DiseaseMedicine",
-                column: "DiseasesId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_DiseaseMedicine_MedicineId",
-                table: "DiseaseMedicine",
-                column: "MedicineId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DiseaseMedicine_MedicinesId",

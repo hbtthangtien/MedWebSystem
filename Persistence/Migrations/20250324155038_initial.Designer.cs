@@ -12,7 +12,7 @@ using Persistence.Config;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MedSystemContext))]
-    [Migration("20250320081458_initial")]
+    [Migration("20250324155038_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -27,23 +27,13 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("DiseaseMedicine", b =>
                 {
-                    b.Property<int>("DiseaseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MedicineId")
-                        .HasColumnType("int");
-
                     b.Property<int>("DiseasesId")
                         .HasColumnType("int");
 
                     b.Property<int>("MedicinesId")
                         .HasColumnType("int");
 
-                    b.HasKey("DiseaseId", "MedicineId");
-
-                    b.HasIndex("DiseasesId");
-
-                    b.HasIndex("MedicineId");
+                    b.HasKey("DiseasesId", "MedicinesId");
 
                     b.HasIndex("MedicinesId");
 
@@ -772,26 +762,14 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Persistence.Entities.Disease", null)
                         .WithMany()
-                        .HasForeignKey("DiseaseId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
-
-                    b.HasOne("Persistence.Entities.Disease", null)
-                        .WithMany()
                         .HasForeignKey("DiseasesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Persistence.Entities.Medicine", null)
-                        .WithMany()
-                        .HasForeignKey("MedicineId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Persistence.Entities.Medicine", null)
                         .WithMany()
                         .HasForeignKey("MedicinesId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
