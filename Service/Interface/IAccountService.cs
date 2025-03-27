@@ -1,5 +1,5 @@
 ﻿using Application.DTOs.Request;
-using Application.DTOs.Response;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Application.Interface
 {
-    public interface IAuthenticateService
+    public interface IAccountService
     {
-        public Task<TokenDTO> Authenticate(LoginDTO loginDTO);
+        public Task CreateAccount(RegisterDTO dto);
     }
 }

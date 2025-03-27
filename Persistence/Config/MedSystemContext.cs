@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -163,6 +164,54 @@ namespace Persistence.Config
                     .HasForeignKey<PatientBooking>(e => e.ScheduleDoctorId)
                     .OnDelete(DeleteBehavior.NoAction);
             });
+            builder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Id = "1", Name = Constants.UserRole.PATIENT,NormalizedName = Constants.UserRole.PATIENT},
+                new IdentityRole { Id = "2", Name = Constants.UserRole.DOCTOR,NormalizedName = Constants.UserRole.DOCTOR},
+                new IdentityRole { Id = "3", Name = Constants.UserRole.CAREGIVER,NormalizedName = Constants.UserRole.CAREGIVER}
+                );
+            builder.Entity<User>(e =>
+            {
+                var hasher = new PasswordHasher<User>();
+                var user1 = new User
+                {
+                    Id = "1",
+                    UserName = "admin",
+                    NormalizedUserName = "ADMIN",
+                    NormalizedEmail = "admin@email.com",
+                    Email = "admin@email.com",
+                    EmailConfirmed = true
+                };
+                var user2 = new User
+                {
+                    Id = "2",
+                    UserName = "account1",
+                    NormalizedUserName = "ACCOUNT1",
+                    NormalizedEmail = "account1@email.com",
+                    Email = "account1@email.com",
+                    EmailConfirmed = true
+                };
+                var user3 = new User
+                {
+                    Id = "3",
+                    UserName = "account2",
+                    NormalizedUserName = "ACCOUNT2",
+                    NormalizedEmail = "account2@email.com",
+                    Email = "account2@email.com",
+                    EmailConfirmed = true
+                };
+                user1.PasswordHash = hasher.HashPassword(user1, "Password123@");
+                user2.PasswordHash = hasher.HashPassword(user2, "Password123@");
+                user3.PasswordHash = hasher.HashPassword(user3, "Password123@");
+                e.HasData(user1);
+                e.HasData(user2);
+                e.HasData(user3);
+
+            });
+            builder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string> { RoleId = "1", UserId = "1" },
+                new IdentityUserRole<string> { RoleId = "1", UserId = "2" },
+                new IdentityUserRole<string> { RoleId = "1", UserId = "3" }
+                );
             
         }
     }
