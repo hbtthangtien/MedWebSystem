@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Config;
 
@@ -11,9 +12,11 @@ using Persistence.Config;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(MedSystemContext))]
-    partial class MedSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20250327075604_add-data")]
+    partial class adddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -796,16 +799,15 @@ namespace Persistence.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bca37ae5-b9db-43a4-ad01-c9f4697b2c2d",
+                            ConcurrencyStamp = "79ed083c-4259-4a69-a45f-1a9118aa8005",
                             Email = "admin@email.com",
                             EmailConfirmed = true,
                             Gender = 0,
                             LockoutEnabled = false,
-                            NormalizedEmail = "admin@email.com",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDDIOG44YVc8FjGGB+/HgeT+R0A2t4HevNJXbfwtLWMfJQQtd7ZFEbJqyGxYqLPINg==",
+                            NormalizedEmail = "ADMIN",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIf7NRtZDAAHkEbfbVCQ+Bx2U6v+T9FhuUjRaenzMcC5n09zTOrtZOxccSV5I8a5Rw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "10b5047d-1ab7-4c22-8839-6b36c6644f48",
+                            SecurityStamp = "0b296030-1924-4e71-b2ca-4e44559f35a8",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -813,16 +815,15 @@ namespace Persistence.Migrations
                         {
                             Id = "2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4eb85a82-f5c0-4bb4-9f8a-8e26e6072f69",
+                            ConcurrencyStamp = "d7b9e799-1456-4174-9103-6e08158d930d",
                             Email = "account1@email.com",
                             EmailConfirmed = true,
                             Gender = 0,
                             LockoutEnabled = false,
-                            NormalizedEmail = "account1@email.com",
-                            NormalizedUserName = "ACCOUNT1",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDEnT3UdEtn5w1WN3Tyf+Cg9z6KoV1ph6p+0R6QJqGTfrQaIcpvnLRM0IOTZf0Ng7A==",
+                            NormalizedEmail = "ACCOUNT1",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIUt0X3c4JmSEq8pFVW+gdY2MxJPDWE4Z+EeOAz6wUovAmj97pJFuVJzAmR9pKTUBA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "875d6608-2c4d-48a6-8af3-1a4a0d114625",
+                            SecurityStamp = "a93adce1-6e3f-4467-9afe-f19e728329b0",
                             TwoFactorEnabled = false,
                             UserName = "account1"
                         },
@@ -830,16 +831,15 @@ namespace Persistence.Migrations
                         {
                             Id = "3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1249dd9d-5157-472e-82e7-8c8f0397514b",
+                            ConcurrencyStamp = "64c03d76-d1bd-44d0-9de0-658d5d46eff9",
                             Email = "account2@email.com",
                             EmailConfirmed = true,
                             Gender = 0,
                             LockoutEnabled = false,
-                            NormalizedEmail = "account2@email.com",
-                            NormalizedUserName = "ACCOUNT2",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKUhFSpNSvjYNaH+iq1dOHwakWgs4XlnP615oWGGyo0Us9owdjoQ5rn5QmMTEFmuMw==",
+                            NormalizedEmail = "ACCOUNT2",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAYZk18khATpML6iQ7i4fc5EwytpkXF6v4zTr9EMrktY1J0UOOLclXdm/Iie7iSYmw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "9c401692-c627-4310-88c1-0e90bb5cfe39",
+                            SecurityStamp = "d867206f-7122-4093-9e84-97a1d059da02",
                             TwoFactorEnabled = false,
                             UserName = "account2"
                         });

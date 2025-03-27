@@ -10,7 +10,17 @@ namespace Persistence.Config
     {
         public static void AddIdentity(this IServiceCollection services)
         {
-            services.AddIdentity<User,IdentityRole>()
+            services.AddIdentity<User,IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+
+                options.User.RequireUniqueEmail = true;
+                
+            })
                 .AddEntityFrameworkStores<MedSystemContext>()
                 .AddDefaultTokenProviders();
         }
