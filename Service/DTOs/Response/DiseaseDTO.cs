@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Persistence.Entities;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence.Entities
+namespace Application.DTOs.Response
 {
-    public class Disease
+    public class DiseaseDTO
     {
         public int Id { get; set; }
 
@@ -19,9 +19,8 @@ namespace Persistence.Entities
 
         public string? ImageUrl { get; set; }
 
-        public virtual ICollection<Symptoms> Symptoms { get; set;} = new List<Symptoms>();
+        public virtual ICollection<SymptomDTO> Symptoms { get; set; } = new List<SymptomDTO>();
 
-        public virtual ICollection<Medicine> Medicines { get; set; } = new List<Medicine>();
-
+        public virtual ICollection<MedicineDTO> Medicines { get; set; } = new List<MedicineDTO>();
     }
 }

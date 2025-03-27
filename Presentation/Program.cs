@@ -1,4 +1,8 @@
+using Application.Interface;
+using Application.Services;
 using Persistence.Config;
+using Persistence.Interface;
+using Persistence.Repositories;
 namespace Presentation
 {
     public class Program
@@ -6,6 +10,8 @@ namespace Presentation
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddScoped<ISymtompsesRespository, SymtompRepository>();
+            builder.Services.AddScoped<ISymtompsesService, SymptomsService>();
             // Add services to the container.
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
